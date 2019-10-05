@@ -1,0 +1,15 @@
+<div *ngIf="itemStoreService.items$ | async as items">
+  <clr-datagrid>
+    <clr-dg-column>ID</clr-dg-column>
+    <clr-dg-column>Description</clr-dg-column>
+    <clr-dg-column>Random number</clr-dg-column>
+
+    <clr-dg-row *clrDgItems="let item of items; trackBy: trackByItemId">
+        <clr-dg-cell>{{item.id}}</clr-dg-cell>
+        <clr-dg-cell>{{item.description}}</clr-dg-cell>
+        <clr-dg-cell>{{item.randomNumber}}</clr-dg-cell>
+    </clr-dg-row>
+
+    <clr-dg-footer>{{items.length}} items</clr-dg-footer>
+  </clr-datagrid>
+</div>
